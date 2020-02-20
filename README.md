@@ -11,7 +11,7 @@
       - "<port>:<port>"
    ``` 
    *NB: Ensure the port your  using isn't alreday in use* <br>
-   You can omit the env_file if your application is not using any environment variables, as simpe as
+   You can omit the env_file if your application is not using any environment variables, as simple as
    ```
     <service-name>:
     image: "<docker-image-url>" 
@@ -20,12 +20,12 @@
    ``` 
 2. If your application made use of an env_file then open the *_init.sh_* file and add your <service-name> above to the array on line 4
 
-3. You can now create a PR for and for your services to spin up
+3. You can now create a Pull Request for and for your services to spin up
 
-4. Now the service spins up but you would not be able to view anything because app running on any port apart from the default isn't visibe outside the box. So you'll have to add this service to the [turntabl API Gateway] (https://github.com/idawud/TurntablAPIGateway.git). You can clone this repo and create a PR after making these additions
+4. Now the service spins up but you would not be able to view anything because app running on any port apart from the default isn't visibe outside the box. So you'll have to add this service to the [turntabl API Gateway](https://github.com/turntabl/TurntablAPIGateway.git). You can clone this repo and create a PR after making these additions
     1. Open the src/main/java/io/tuntabl/TurntablApiGatewayApplication.java
     2. If your service is an API or only Endpoint, then you should add security layer for access using OPEN ID Connect by modifying this file to add route
-    *NB: use <service-name> above* 
+    *NB: use the service-name above* 
      ```
      .route("<service-name> ",
             r -> r.path("/<service-name> /**")
@@ -40,7 +40,7 @@
                 .filters(f -> f.rewritePath("/<service-name> /(?<segment>.*)", "/${segment}"))
                 .uri("http://<service-name>:<service-port>"))
     ```
-5. If your PR is merged you can now access the service at http://api.services.turntabl.io/<service-name>/[all the routes in this service]
+5. If your PR is merged you can now access the service at http://api.services.turntabl.io/service-name/[all the routes in this service]
 
 ### Setting the Environment Variables and running CI/CD
 The primary method we use is the GitHub Action
