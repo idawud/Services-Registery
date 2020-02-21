@@ -68,10 +68,10 @@ The primary method we use is the GitHub Action
     *NB: the <image-name> should same as the one in the *_docker-compose.yml_* file* <br>
     This will build your Dockerfile and push it to your dockerHub repo with the image_name and tag
 2. Secrets
-    - The secrets is under the repository setting. You should be able to add and remove secrets
+    - The secrets is under your Project's repository setting. You should be able to add and remove secrets
     - Click on the  _Add a new secret_ and provide the Name and Value. The Name should match the accessed value in the workflow yml file. E.g. Name: DOCKER_USERNAME , Value: turntabl
-    - Provide for all the secrets variable. Which will incude the the EC2 var for the private pem file and EC2_HOST to be used to connect to the aws box
-    - If your using an environment from above. You should add an ENV secret which will be read and updated to your env_file on each action. So if you want o update your environment variables you delete the ENV and create new one with same name. The ENV Value should in the format
+    - Provide for all the secrets variable. Which include the EC2 var for the private pem file and EC2_HOST to be used to connect to the aws box
+    - If your using an environment from above. You should add an ENV secret which will be read and updated to your env_file on each action. So if you want to update your environment variables, you delete the ENV and create new one with same name. The ENV Value should in the format
     ```
     name=value
     name2=value2
