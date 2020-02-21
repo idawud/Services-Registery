@@ -20,7 +20,7 @@ services:
       - "5004:5004"
 
   chess:
-    image: "francisbilla/node-redirect-service"
-    - .envs/.node-redirect-service
+    image: "francisbilla/chess"
+    - .envs/.chess
     ports: 
       -"8080:8080"    
